@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from books.api import viewsets as booksviewsets
+from rest_framework.authtoken.views import obtain_auth_token
 
 route = routers.DefaultRouter()
 
@@ -24,5 +25,6 @@ route.register(r'Books', booksviewsets.BooksViewSet, basename='Books')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api-token-auth", obtain_auth_token, name='api-token-auth'),
     path('', include(route.urls))
 ]
