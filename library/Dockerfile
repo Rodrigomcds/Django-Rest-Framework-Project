@@ -20,6 +20,8 @@ RUN apt-get update \
         libpq-dev gcc \
     && pip install --upgrade pip \
     && pip install django psycopg2-binary djangorestframework \
+    && pip install psycopg2 \
+    && apt-get -y install libpq-dev gcc \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
